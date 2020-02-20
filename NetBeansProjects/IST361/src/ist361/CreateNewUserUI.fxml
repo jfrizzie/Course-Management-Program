@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import java.net.*?>
+
+<GridPane fx:controller="fxmlexample.CreateNewUserController" 
+    xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" vgap="10">
+<padding><Insets top="25" right="25" bottom="10" left="25"/></padding>
+<Text text="Create New User" 
+        GridPane.columnIndex="0" GridPane.rowIndex="0"
+        GridPane.columnSpan="2"/>
+ 
+    <Label text="Choose a Username and Password:"
+        GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+    
+    <Label text="Username:"
+        GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+    
+     <TextField fx:id="userField"
+        GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+    
+    <Label text="New Password:"
+        GridPane.columnIndex="0" GridPane.rowIndex="4"/>
+ 
+    <PasswordField fx:id="newPasswordField"
+        GridPane.columnIndex="1" GridPane.rowIndex="4"/>
+    
+    <Label text="Confirm New Password:"
+        GridPane.columnIndex="0" GridPane.rowIndex="5"/>
+ 
+    <PasswordField fx:id="confirmNewPasswordField"
+        GridPane.columnIndex="1" GridPane.rowIndex="5"/>
+ 
+    <HBox spacing="10" alignment="bottom_right" 
+        GridPane.columnIndex="1" GridPane.rowIndex="6">
+        <Button text="Cancel"     
+        onAction="#handleCancelButtonAction"/>
+        <Button text="Create User"     
+        onAction="#handleCreateUserButtonAction"/>
+    </HBox>
+    
+    <Text fx:id="actiontarget"
+       GridPane.columnIndex="1" GridPane.rowIndex="8"/>
+</GridPane>
+

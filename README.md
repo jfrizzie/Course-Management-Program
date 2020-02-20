@@ -1,1 +1,1 @@
-# Firefighting-Robot-Algorithm
+# IST 361 Project

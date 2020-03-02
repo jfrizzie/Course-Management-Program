@@ -56,7 +56,7 @@ public class LoginController implements Initializable {
                 Parent root1 = (Parent) fxmlLoader.load();
                 Stage stage = new Stage();
 
-                stage.setTitle("RESPAID Main Menu");
+                stage.setTitle("Create New User");
                 stage.setScene(new Scene(root1));  
                 stage.show();
             }
@@ -93,7 +93,7 @@ public class LoginController implements Initializable {
                 Parent root1 = (Parent) fxmlLoader.load();
                 Stage stage = new Stage();
 
-                stage.setTitle("RESPAID Main Menu");
+                stage.setTitle("Main Menu");
                 stage.setScene(new Scene(root1));  
                 stage.show();
             }

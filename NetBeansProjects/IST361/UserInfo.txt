@@ -1,2 +1,3 @@
 admin:password
 root:toor
+jfrizz:1234

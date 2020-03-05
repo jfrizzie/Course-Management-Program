@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ist361.ScheduleController">
    <children>
-      <Button layoutX="22.0" layoutY="14.0" mnemonicParsing="false" text="Back" />
-      <TextArea layoutX="74.0" layoutY="63.0" prefHeight="275.0" prefWidth="452.0" />
+      <Button layoutX="22.0" layoutY="14.0" mnemonicParsing="false" onAction="#backButton" text="Back" />
+      <Label alignment="TOP_LEFT" layoutX="87.0" layoutY="65.0" lineSpacing="1.0" prefHeight="277.0" prefWidth="425.0" text="Current Courses" textAlignment="CENTER" />
    </children>
 </AnchorPane>

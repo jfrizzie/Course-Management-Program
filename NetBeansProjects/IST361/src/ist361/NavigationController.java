@@ -41,7 +41,19 @@ public class NavigationController implements Initializable {
 
     @FXML
     protected void enrollCourses(ActionEvent event) throws IOException {
+        try {
+            Stage stageOriginal = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stageOriginal.close();
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("EnrollCourseUI.fxml"));
+            Parent root1 = (Parent) fxmlLoader.load();
+            Stage stage = new Stage();
 
+            stage.setTitle("Enroll in Courses");
+            stage.setScene(new Scene(root1));
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML

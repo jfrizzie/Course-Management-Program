@@ -58,12 +58,36 @@ public class NavigationController implements Initializable {
 
     @FXML
     protected void manageAccount(ActionEvent event) throws IOException {
+        try {
+            Stage stageOriginal = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stageOriginal.close();
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("MainAccountUI.fxml"));
+            Parent root1 = (Parent) fxmlLoader.load();
+            Stage stage = new Stage();
 
+            stage.setTitle("Account Manager");
+            stage.setScene(new Scene(root1));
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML
     protected void dropCourses(ActionEvent event) throws IOException {
+        try {
+            Stage stageOriginal = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stageOriginal.close();
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("DropCourseUI.fxml"));
+            Parent root1 = (Parent) fxmlLoader.load();
+            Stage stage = new Stage();
 
+            stage.setTitle("Drop Courses");
+            stage.setScene(new Scene(root1));
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
     
     @Override

@@ -5,13 +5,13 @@
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="462.0" prefWidth="743.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/10.0.1" fx:controller="ist361.EnrollCourseController">
+<AnchorPane id="AnchorPane" prefHeight="462.0" prefWidth="743.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ist361.EnrollCourseController">
    <children>
-      <Button onAction="#backButton" layoutX="21.0" layoutY="14.0" mnemonicParsing="false" text="Back" />
+      <Button layoutX="21.0" layoutY="14.0" mnemonicParsing="false" onAction="#backButton" text="Back" />
       <ScrollPane layoutX="34.0" layoutY="124.0" prefHeight="319.0" prefWidth="318.0" />
-      <Label layoutX="38.0" layoutY="78.0" text="Course List:" />
-      <Label layoutX="383.0" layoutY="77.0" text="Your Selected Courses:" />
-      <Label alignment="TOP_LEFT" layoutX="386.0" layoutY="126.0" prefHeight="306.0" prefWidth="292.0" text="Courses..." />
+      <Label layoutX="38.0" layoutY="78.0" text="Penn State Course Options:" />
+      <Label layoutX="387.0" layoutY="77.0" text="Your Selected Courses:" />
+      <Label alignment="TOP_LEFT" layoutX="385.0" layoutY="125.0" prefHeight="258.0" prefWidth="292.0" text="Courses..." />
+      <Button layoutX="441.0" layoutY="385.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="223.0" text="Enroll in Selected Courses" />
    </children>
 </AnchorPane>

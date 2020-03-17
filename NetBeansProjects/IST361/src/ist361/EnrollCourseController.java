@@ -1,13 +1,13 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package ist361;
 
+import javafx.scene.input.MouseEvent;
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -15,6 +15,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.*;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 /**
@@ -24,7 +26,38 @@ import javafx.stage.Stage;
  */
 public class EnrollCourseController implements Initializable {
 
-    @FXML protected void backButton(ActionEvent event) throws IOException{
+    private ObservableList<String> observe = FXCollections.observableArrayList();
+    @FXML private ListView courseList;
+    @FXML private AnchorPane achor;
+    @FXML public void initialize(){
+    }
+    
+    public EnrollCourseController() {
+        try {
+            FileReader reader = new FileReader("courselist.txt");
+            BufferedReader bufferedReader = new BufferedReader(reader);
+            String line;
+
+            line = bufferedReader.readLine();
+            while ((line = bufferedReader.readLine()) != null) {
+                observe.add(line);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    
+    @FXML
+    protected void showCourses(ActionEvent event) throws IOException {
+        try {
+            courseList.setItems(observe);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    
+    @FXML
+    protected void backButton(ActionEvent event) throws IOException {
         try {
             Stage stageOriginal = (Stage) ((Node) event.getSource()).getScene().getWindow();;
             stageOriginal.close();
@@ -33,21 +66,30 @@ public class EnrollCourseController implements Initializable {
             Stage stage = new Stage();
 
             stage.setTitle("Main Menu");
-            stage.setScene(new Scene(root1));  
+            stage.setScene(new Scene(root1));
             stage.show();
-        }
-        catch(Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
-    
-    
+
     /**
-     * Initializes the controller class.
+     * @return the observe
      */
+    public ObservableList<String> getObserve() {
+        return observe;
+    }
+
+    /**
+     * @param observe the observe to set
+     */
+    public void setObserve(ObservableList<String> observe) {
+        this.observe = observe;
+    }
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
-    
+    }
+
 }

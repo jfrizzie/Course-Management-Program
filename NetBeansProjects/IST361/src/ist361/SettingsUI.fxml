@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import java.net.*?>
+
+<GridPane fx:controller="ist361.MainAccountController" 
+    xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" vgap="10">
+<padding><Insets top="25" right="25" bottom="10" left="25"/></padding>
+<Text text="Settings" 
+        GridPane.columnIndex="0" GridPane.rowIndex="0"
+        GridPane.columnSpan="2"/>
+ 
+    <Label text="Update Password?:"
+        GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+    
+    <Label text="Username:"
+        GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+    
+    <TextField fx:id="userField"
+        GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+    
+    <Label text="Old Password:"
+        GridPane.columnIndex="0" GridPane.rowIndex="4"/>
+ 
+    <PasswordField fx:id="oldPasswordField"
+        GridPane.columnIndex="1" GridPane.rowIndex="4"/>
+    
+    <Label text="New Password:"
+        GridPane.columnIndex="0" GridPane.rowIndex="5"/>
+ 
+    <PasswordField fx:id="newPasswordField"
+        GridPane.columnIndex="1" GridPane.rowIndex="5"/>
+    
+    <Label text="Confirm New Password:"
+        GridPane.columnIndex="0" GridPane.rowIndex="6"/>
+ 
+    <PasswordField fx:id="confirmNewPasswordField"
+        GridPane.columnIndex="1" GridPane.rowIndex="6"/>
+ 
+    <HBox spacing="10" alignment="bottom_right" 
+        GridPane.columnIndex="2" GridPane.rowIndex="6">
+        <Button text="Update Password"     
+        onAction="#handleUpdatePasswordButtonAction"/>
+    </HBox>
+    
+    <HBox spacing="10" alignment="bottom_right" 
+        GridPane.columnIndex="1" GridPane.rowIndex="8">
+        <Button text="Back"     
+        onAction="#backButton"/>
+    </HBox>
+    
+<Text fx:id="actiontarget"
+       GridPane.columnIndex="1" GridPane.rowIndex="10"/>
+</GridPane>
+

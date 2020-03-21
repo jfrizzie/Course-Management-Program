@@ -15,6 +15,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.ListView;
 import javafx.stage.Stage;
 
 /**
@@ -23,6 +24,22 @@ import javafx.stage.Stage;
  * @author Julia
  */
 public class DropCourseController implements Initializable {
+    
+    @FXML
+    private ListView myCourses;
+    MyCourses courseClass;
+    
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+        // TODO
+        myCourses.setItems(courseClass.getCourses());
+    }
+    
+    @FXML protected void dropCourse(ActionEvent event) throws IOException{
+        String selectedText = myCourses.getSelectionModel().getSelectedItem().toString();
+        courseClass.getCourses().remove(selectedText);
+        myCourses.setItems(courseClass.getCourses());
+    }
 
     @FXML protected void backButton(ActionEvent event) throws IOException{
         try {
@@ -41,12 +58,5 @@ public class DropCourseController implements Initializable {
         }
     }  
     
-    /**
-     * Initializes the controller class.
-     */
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-    }    
     
 }

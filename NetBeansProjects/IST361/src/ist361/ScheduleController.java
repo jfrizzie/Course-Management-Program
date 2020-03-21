@@ -10,10 +10,21 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.ListView;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 public class ScheduleController implements Initializable{
+    
+    @FXML
+    private ListView myCourses;
+    MyCourses courseClass;
+    
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+         //TODO
+         myCourses.setItems(courseClass.getCourses());
+    }
     
     
     @FXML protected void backButton(ActionEvent event) throws IOException{
@@ -31,11 +42,6 @@ public class ScheduleController implements Initializable{
         catch(Exception e) {
             e.printStackTrace();
         }
-    }
-
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
-         //TODO
     }
     
 

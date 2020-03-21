@@ -1,6 +1,5 @@
 package ist361;
 
-import javafx.scene.input.MouseEvent;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -16,7 +15,6 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 /**
@@ -27,12 +25,16 @@ import javafx.stage.Stage;
 public class EnrollCourseController implements Initializable {
 
     private ObservableList<String> observe = FXCollections.observableArrayList();
-    @FXML private ListView courseList;
-    @FXML private AnchorPane achor;
-    @FXML public void initialize(){
-    }
-    
-    public EnrollCourseController() {
+    @FXML
+    private ListView courseList;
+    @FXML
+    private ListView myCourses;
+    private ObservableList<String> tempCourses = FXCollections.observableArrayList();
+    MyCourses courseClass;
+
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+        // TODO
         try {
             FileReader reader = new FileReader("courselist.txt");
             BufferedReader bufferedReader = new BufferedReader(reader);
@@ -45,17 +47,38 @@ public class EnrollCourseController implements Initializable {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        courseList.setItems(observe);
     }
-    
+
+    public EnrollCourseController() {
+        
+    }
+
     @FXML
-    protected void showCourses(ActionEvent event) throws IOException {
+    protected void addtoCourseList(ActionEvent event) throws IOException {
         try {
-            courseList.setItems(observe);
+            String selectedText = courseList.getSelectionModel().getSelectedItem().toString();
+            tempCourses.add(selectedText);
+            myCourses.setItems(tempCourses);
+            
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
     
+    @FXML
+    protected void EnrollSelectedCourses(ActionEvent event) throws IOException {
+        try {
+            for (int i = 0; i < tempCourses.size(); i++) {
+                courseClass.addCourse(tempCourses.get(i));
+            }
+            tempCourses.clear();
+            myCourses.setItems(tempCourses);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }   
+
     @FXML
     protected void backButton(ActionEvent event) throws IOException {
         try {
@@ -85,11 +108,6 @@ public class EnrollCourseController implements Initializable {
      */
     public void setObserve(ObservableList<String> observe) {
         this.observe = observe;
-    }
-    
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        // TODO
     }
 
 }

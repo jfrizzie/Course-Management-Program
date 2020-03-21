@@ -51,6 +51,7 @@ public class NavigationController implements Initializable {
             stage.setTitle("Enroll in Courses");
             stage.setScene(new Scene(root1));
             stage.show();
+            
         } catch (Exception e) {
             e.printStackTrace();
         }

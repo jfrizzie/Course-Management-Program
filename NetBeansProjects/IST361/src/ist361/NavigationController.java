@@ -62,7 +62,7 @@ public class NavigationController implements Initializable {
         try {
             Stage stageOriginal = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stageOriginal.close();
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("MainAccountUI.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("SettingsUI.fxml"));
             Parent root1 = (Parent) fxmlLoader.load();
             Stage stage = new Stage();
 

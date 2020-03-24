@@ -4,9 +4,13 @@ package ist361;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -27,7 +31,7 @@ import javafx.stage.Stage;
  */
 public class MainAccountController implements Initializable{
     
-    @FXML private PasswordField PasswordField;
+    @FXML private PasswordField oldPasswordField;
     @FXML private PasswordField newPasswordField;
     @FXML private PasswordField confirmNewPasswordField;
     @FXML private TextField userField;
@@ -51,8 +55,9 @@ public class MainAccountController implements Initializable{
  
                 String trimmedLine = currentLine.trim();
    
-                if(trimmedLine.contains(userField.getText())){
+                if(trimmedLine.equals((userField.getText()+":"+oldPasswordField.getText()).trim())){
                     actiontarget.setText("Password Updated");
+                    System.out.println("Password Updated");
                     validCredentials=true;
                     writer.write(userField.getText()+":"+newPasswordField.getText()+System.getProperty("line.separator"));
                 }
@@ -65,10 +70,24 @@ public class MainAccountController implements Initializable{
                 actiontarget.setText("Unable to Update Password. Invalid Credentials");
             }
             else{
-                writer.close(); 
-                reader.close(); 
-                File.delete();
-                tempFile.renameTo(File);
+                reader.close();
+                writer.close();
+                try
+                {
+                    InputStream is = new FileInputStream(tempFile);
+                    OutputStream os = new FileOutputStream(File);
+                    byte[] buffer = new byte[1024];
+                    int length;
+                    while((length=is.read(buffer))>0)
+                    {
+                        os.write(buffer,0,length);
+                    }
+                    is.close();
+                    os.close();
+                }
+                finally{}
+                
+                
                 try {
                     Stage stageOriginal = (Stage) actiontarget.getScene().getWindow();
                     stageOriginal.close();
@@ -76,7 +95,7 @@ public class MainAccountController implements Initializable{
                     Parent root1 = (Parent) fxmlLoader.load();
                     Stage stage = new Stage();
 
-                    stage.setTitle("RESPAID Main Menu");
+                    stage.setTitle("IST 361 Application");
                     stage.setScene(new Scene(root1));  
                     stage.show();
                 }
@@ -87,59 +106,6 @@ public class MainAccountController implements Initializable{
         }
         else{
             actiontarget.setText("The Update Password Fields Don't Match");
-        }
-    }
-    
-    @FXML protected void handleDeleteAccountButtonAction(ActionEvent event) throws IOException {
-
-        
-        File File = new File("UserInfo.txt");
-        File tempFile = new File("tempUserInfo.txt");
- 
-        BufferedReader reader = new BufferedReader(new FileReader(File));
-        BufferedWriter writer = new BufferedWriter(new FileWriter(tempFile));
- 
-        String lineToRemove = usernameField.getText()+":"+PasswordField.getText();
-        String currentLine;
-        
-        boolean validCredentials = false;
- 
-        while((currentLine = reader.readLine()) != null) {
- 
-            String trimmedLine = currentLine.trim();
-   
-            if(trimmedLine.equals(lineToRemove)){
-                actiontarget.setText("Account Deleted");
-                validCredentials=true;
-                continue;
-            }
- 
-            writer.write(currentLine + System.getProperty("line.separator"));
-        }
-        if(!validCredentials)
-        {
-            actiontarget.setText("Unable to Delete Account. Invalid Credentials");
-        }
-        
-        else{
-            writer.close(); 
-            reader.close(); 
-            File.delete();
-            tempFile.renameTo(File);
-            try {
-                Stage stageOriginal = (Stage) actiontarget.getScene().getWindow();
-                stageOriginal.close();
-                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("LoginUI.fxml"));
-                Parent root1 = (Parent) fxmlLoader.load();
-                Stage stage = new Stage();
-
-                stage.setTitle("RESPAID Main Menu");
-                stage.setScene(new Scene(root1));  
-                stage.show();
-            }
-            catch(Exception e) {
-                e.printStackTrace();
-            }
         }
     }
 

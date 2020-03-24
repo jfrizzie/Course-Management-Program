@@ -50,17 +50,29 @@ public class CreateNewUserController implements Initializable {
             {
                 actiontarget.setText("User Successfully Added");
                 writer.write(userField.getText()+":"+newPasswordField.getText()+System.getProperty("line.separator"));
-                writer.close(); 
-                reader.close(); 
-                File.delete();
-                tempFile.renameTo(File);
+                reader.close();
+                writer.close();
+                try
+                {
+                    InputStream is = new FileInputStream(tempFile);
+                    OutputStream os = new FileOutputStream(File);
+                    byte[] buffer = new byte[1024];
+                    int length;
+                    while((length=is.read(buffer))>0)
+                    {
+                        os.write(buffer,0,length);
+                    }
+                    is.close();
+                    os.close();
+                }
+                finally{}
                 try {
                     Stage stageOriginal = (Stage) actiontarget.getScene().getWindow();
                     stageOriginal.close();
                     FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("LoginUI.fxml"));
                     Parent root1 = (Parent) fxmlLoader.load();
                     Stage stage = new Stage();
-                    stage.setTitle("RESPAID Main Menu");
+                    stage.setTitle("IST 361 Application");
                     stage.setScene(new Scene(root1));  
                     stage.show();
                 }
@@ -81,7 +93,7 @@ public class CreateNewUserController implements Initializable {
             Parent root1 = (Parent) fxmlLoader.load();
             Stage stage = new Stage();
 
-            stage.setTitle("RESPAID");
+            stage.setTitle("IST 361 Application");
             stage.setScene(new Scene(root1));  
             stage.show();
         }

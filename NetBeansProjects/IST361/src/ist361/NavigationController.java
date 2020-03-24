@@ -90,6 +90,22 @@ public class NavigationController implements Initializable {
             e.printStackTrace();
         }
     }
+    @FXML
+    protected void logOut(ActionEvent event) throws IOException {
+        try {
+            Stage stageOriginal = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stageOriginal.close();
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("LoginUI.fxml"));
+            Parent root1 = (Parent) fxmlLoader.load();
+            Stage stage = new Stage();
+
+            stage.setTitle("IST 361 Application");
+            stage.setScene(new Scene(root1));
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {

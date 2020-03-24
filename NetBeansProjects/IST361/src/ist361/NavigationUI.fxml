@@ -9,5 +9,6 @@
       <Button layoutX="343.0" layoutY="65.0" mnemonicParsing="false" onAction="#manageAccount" prefHeight="45.0" prefWidth="205.0" text="Manage User Account" />
       <Button layoutX="55.0" layoutY="178.0" mnemonicParsing="false" onAction="#enrollCourses" prefHeight="45.0" prefWidth="205.0" text="Enroll in Courses" />
       <Button layoutX="343.0" layoutY="178.0" mnemonicParsing="false" onAction="#dropCourses" prefHeight="45.0" prefWidth="205.0" text="Drop Courses" />
+      <Button layoutX="199.0" layoutY="291.0" mnemonicParsing="false" onAction="#logOut" prefHeight="45.0" prefWidth="205.0" text="Logout" />
    </children>
 </AnchorPane>

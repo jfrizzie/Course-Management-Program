@@ -10,11 +10,9 @@ import javafx.collections.ObservableList;
 public class MyCourses {
 
     private static ObservableList<String> courses = FXCollections.observableArrayList();
-    private String course;
 
     public MyCourses() {
         this.courses = courses;
-        this.course = course;
     }
     
     public static void main(String[] args) {

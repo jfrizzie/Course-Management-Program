@@ -1,4 +1,6 @@
 admin:password
 root:toor
-jfrizz:1234
+jfrizz:123
 testing:test
+jules:jfrizz
+test1:123

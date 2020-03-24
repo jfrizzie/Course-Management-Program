@@ -6,17 +6,17 @@
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" fx:id="anchor" prefHeight="462.0" prefWidth="743.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ist361.EnrollCourseController">
+<AnchorPane id="AnchorPane" fx:id="anchor" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="700.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ist361.EnrollCourseController">
    <children>
       <Button layoutX="21.0" layoutY="14.0" mnemonicParsing="false" onAction="#backButton" text="Back" />
-      <ScrollPane layoutX="34.0" layoutY="124.0" prefHeight="275.0" prefWidth="318.0">
+      <ScrollPane layoutX="34.0" layoutY="124.0" prefHeight="500.0" prefWidth="614.0">
          <content>
-            <ListView fx:id="courseList" prefHeight="20000.0" prefWidth="321.0" />
+            <ListView fx:id="courseList" prefHeight="20017.0" prefWidth="625.0" />
          </content></ScrollPane>
       <Label layoutX="38.0" layoutY="78.0" text="Penn State Course Options:" />
-      <Label layoutX="387.0" layoutY="77.0" text="Your Selected Courses:" />
-      <Button layoutX="441.0" layoutY="385.0" mnemonicParsing="false" onAction="#EnrollSelectedCourses" prefHeight="40.0" prefWidth="223.0" text="Enroll in Selected Courses" />
-      <ListView fx:id="myCourses" layoutX="387.0" layoutY="124.0" prefHeight="239.0" prefWidth="284.0" />
-      <Button layoutX="36.0" layoutY="412.0" mnemonicParsing="false" onAction="#addtoCourseList" prefHeight="27.0" prefWidth="127.0" text="Select Course" />
+      <Label layoutX="710.0" layoutY="74.0" prefHeight="20.0" prefWidth="145.0" text="Your Selected Courses:" />
+      <Button layoutX="1020.0" layoutY="640.0" mnemonicParsing="false" onAction="#EnrollSelectedCourses" prefHeight="40.0" prefWidth="223.0" text="Enroll in Selected Courses" />
+      <ListView fx:id="myCourses" layoutX="700.0" layoutY="121.0" prefHeight="500.0" prefWidth="550.0" />
+      <Button layoutX="500.0" layoutY="650.0" mnemonicParsing="false" onAction="#addtoCourseList" prefHeight="27.0" prefWidth="148.0" text="Select Course" />
    </children>
 </AnchorPane>
